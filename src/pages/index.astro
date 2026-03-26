@@ -13,38 +13,395 @@ import { SITE_TITLE, SITE_DESCRIPTION } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to <a href="https://docs.astro.build/"
-					>read the docs
-				</a> or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out <a
-					href="https://github.com/Charca/astro-blog-template"
-					>astro-blog-template
-				</a> by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="hero">
+				<div class="badge">Simple digital presence for busy organisations</div>
+				<h1>Get your business online without the hassle</h1>
+				<p class="hero-text">
+					Aljava Digital helps busy local businesses and charities build a professional
+					online presence, attract attention, and stay visible - without needing to manage the tech.
+				</p>
+				<div class="hero-actions">
+					<a class="button primary" href="#contact">Get a free audit</a>
+					<a class="button secondary" href="#services">See services</a>
+				</div>
+				<p class="trust-line">
+					Websites, Google presence and automation for busy organisations
+				</p>
+			</section>
+
+			<section class="section" id="problems">
+				<h2>Too busy to sort your online presence?</h2>
+				<p>
+					Many organisations are doing great work, but their digital presence does not reflect it.
+					That often means missed opportunities, less trust, and fewer enquiries.
+				</p>
+				<div class="grid three">
+					<div class="card">
+						<h3>No website, or an outdated one</h3>
+						<p>
+							People search for you online and either find nothing, or find something old and unclear.
+						</p>
+					</div>
+					<div class="card">
+						<h3>Hard to find on Google</h3>
+						<p>
+							If your business profile and contact details are missing or inconsistent, customers may move on.
+						</p>
+					</div>
+					<div class="card">
+						<h3>No clear booking or contact flow</h3>
+						<p>
+							People should be able to contact you, book you, or follow you quickly and easily.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="section" id="services">
+				<h2>Services</h2>
+				<p class="section-intro">
+					Simple, practical packages to help you build a strong and professional online foundation.
+				</p>
+				<div class="grid two">
+					<div class="card service-card">
+						<div class="icon">🌐</div>
+						<h3>Web Presence Foundation</h3>
+						<ul>
+							<li>Google Business setup</li>
+							<li>Simple website</li>
+							<li>Contact form</li>
+						</ul>
+					</div>
+
+					<div class="card service-card">
+						<div class="icon">📈</div>
+						<h3>Growth Website</h3>
+						<ul>
+							<li>Multi-page website</li>
+							<li>Social media setup</li>
+							<li>Basic SEO</li>
+						</ul>
+					</div>
+
+					<div class="card service-card">
+						<div class="icon">🗓️</div>
+						<h3>Booking & Automation</h3>
+						<ul>
+							<li>Booking setup</li>
+							<li>Reminders</li>
+							<li>Enquiry flows</li>
+						</ul>
+					</div>
+
+					<div class="card service-card">
+						<div class="icon">💌</div>
+						<h3>Charity Communications</h3>
+						<ul>
+							<li>Newsletter setup</li>
+							<li>Signup forms</li>
+							<li>Campaign landing pages</li>
+						</ul>
+					</div>
+				</div>
+			</section>
+
+			<section class="section highlight" id="differentiator">
+				<h2>See your business before you buy</h2>
+				<p>
+					One of the easiest ways to move forward is to see what your online presence could look like
+					before committing. We can create a draft suggestion for your website or digital direction,
+					so you can assess the idea with confidence.
+				</p>
+				<p>
+					This keeps things simple, practical and low-risk.
+				</p>
+			</section>
+
+			<section class="section" id="how-it-works">
+				<h2>How it works</h2>
+				<div class="grid four">
+					<div class="card step-card">
+						<span class="step-number">1</span>
+						<h3>We review your current presence</h3>
+						<p>We look at what exists today and identify quick wins.</p>
+					</div>
+					<div class="card step-card">
+						<span class="step-number">2</span>
+						<h3>We create a draft suggestion</h3>
+						<p>We prepare a practical direction for your website or digital setup.</p>
+					</div>
+					<div class="card step-card">
+						<span class="step-number">3</span>
+						<h3>You approve the direction</h3>
+						<p>You review the draft and decide whether to move ahead.</p>
+					</div>
+					<div class="card step-card">
+						<span class="step-number">4</span>
+						<h3>We launch and maintain it</h3>
+						<p>Once approved, we refine it, publish it and keep it up to date.</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="section" id="audience">
+				<h2>Who this is for</h2>
+				<div class="grid three">
+					<div class="card">
+						<h3>Local businesses</h3>
+						<p>
+							Ideal for businesses that need a clearer online presence and an easier way for customers to find them.
+						</p>
+					</div>
+					<div class="card">
+						<h3>Charities</h3>
+						<p>
+							Useful for organisations that need newsletters, signups, campaign pages and simple digital communication tools.
+						</p>
+					</div>
+					<div class="card">
+						<h3>Appointment-based services</h3>
+						<p>
+							Well suited for salons, tattoo studios and similar services that benefit from booking and reminders.
+						</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="section about" id="about">
+				<h2>About Aljava Digital</h2>
+				<p>
+					Aljava Digital helps organisations that are too busy to sort out their online presence.
+					The aim is simple: make it easier for people to find you, trust you, and contact you.
+				</p>
+				<p>
+					Built by an experienced technology professional based in the UK, Aljava Digital combines
+					practical digital delivery with a simple, personal approach.
+				</p>
+			</section>
+
+			<section class="section cta-section" id="contact">
+				<h2>Ready to improve your online presence?</h2>
+				<p>
+					Get in touch for a free audit or a draft suggestion tailored to your organisation.
+				</p>
+				<div class="hero-actions">
+					<a class="button primary" href="mailto:hello@aljava.net">Email Aljava Digital</a>
+					<a class="button secondary" href="#services">View services</a>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>
 </html>
+
+<style>
+	.hero {
+		padding: 4rem 0 3rem;
+		text-align: center;
+	}
+
+	.badge {
+		display: inline-block;
+		margin-bottom: 1rem;
+		padding: 0.45rem 0.9rem;
+		border-radius: 999px;
+		background: rgba(42, 157, 143, 0.12);
+		color: var(--secondary);
+		font-size: 0.9rem;
+		font-weight: 700;
+	}
+
+	.hero h1 {
+		max-width: 12ch;
+		margin: 0 auto 1rem;
+		font-size: clamp(2.4rem, 6vw, 4.2rem);
+		line-height: 1.1;
+	}
+
+	.hero-text {
+		max-width: 760px;
+		margin: 0 auto 1.5rem;
+		font-size: 1.1rem;
+	}
+
+	.trust-line {
+		margin-top: 1rem;
+		font-size: 0.95rem;
+		color: rgb(var(--gray));
+	}
+
+	.hero-actions {
+		display: flex;
+		gap: 1rem;
+		justify-content: center;
+		flex-wrap: wrap;
+		margin-top: 1.5rem;
+	}
+
+	.button {
+		display: inline-block;
+		padding: 0.9rem 1.4rem;
+		border-radius: 8px;
+		font-weight: 700;
+		text-decoration: none;
+		transition:
+			transform 0.2s ease,
+			background 0.2s ease,
+			color 0.2s ease;
+	}
+
+	.button:hover {
+		transform: translateY(-2px);
+	}
+
+	.button.primary {
+		background: var(--primary);
+		color: white;
+	}
+
+	.button.primary:hover {
+		background: var(--primary-dark);
+		color: white;
+	}
+
+	.button.secondary {
+		background: white;
+		color: var(--primary);
+		border: 1px solid rgb(var(--gray-soft));
+	}
+
+	.button.secondary:hover {
+		background: rgb(var(--gray-light));
+		color: var(--primary-dark);
+	}
+
+	.section {
+		padding: 3rem 0;
+	}
+
+	.section-intro {
+		max-width: 760px;
+		margin-bottom: 2rem;
+	}
+
+	.grid {
+		display: grid;
+		gap: 1.5rem;
+		margin-top: 2rem;
+	}
+
+	.grid.two {
+		grid-template-columns: repeat(2, minmax(0, 1fr));
+	}
+
+	.grid.three {
+		grid-template-columns: repeat(3, minmax(0, 1fr));
+	}
+
+	.grid.four {
+		grid-template-columns: repeat(4, minmax(0, 1fr));
+	}
+
+	.card {
+		background: white;
+		padding: 1.5rem;
+		border-radius: 12px;
+		box-shadow: var(--box-shadow);
+		height: 100%;
+	}
+
+	.card h3 {
+		font-size: 1.15rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.service-card .icon {
+		font-size: 1.8rem;
+		margin-bottom: 0.75rem;
+	}
+
+	.service-card ul {
+		margin: 0;
+		padding-left: 1.2rem;
+	}
+
+	.highlight {
+		padding: 2.5rem;
+		background: linear-gradient(
+			135deg,
+			rgba(31, 78, 121, 0.08),
+			rgba(244, 162, 97, 0.12)
+		);
+		border-radius: 16px;
+	}
+
+	.step-card {
+		position: relative;
+		padding-top: 2.5rem;
+	}
+
+	.step-number {
+		position: absolute;
+		top: 1rem;
+		left: 1rem;
+		display: inline-flex;
+		align-items: center;
+		justify-content: center;
+		width: 2rem;
+		height: 2rem;
+		border-radius: 999px;
+		background: var(--accent);
+		color: white;
+		font-weight: 700;
+		font-size: 0.95rem;
+	}
+
+	.about,
+	.cta-section {
+		text-align: center;
+	}
+
+	.cta-section {
+		padding: 3.5rem 2rem;
+		background: rgba(31, 78, 121, 0.06);
+		border-radius: 16px;
+		margin-bottom: 2rem;
+	}
+
+	@media (max-width: 960px) {
+		.grid.four {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+
+		.grid.three {
+			grid-template-columns: repeat(2, minmax(0, 1fr));
+		}
+	}
+
+	@media (max-width: 720px) {
+		.hero {
+			padding: 2rem 0 2.5rem;
+			text-align: left;
+		}
+
+		.hero h1,
+		.hero-text {
+			max-width: 100%;
+		}
+
+		.hero-actions {
+			justify-content: flex-start;
+		}
+
+		.grid.two,
+		.grid.three,
+		.grid.four {
+			grid-template-columns: 1fr;
+		}
+
+		.highlight,
+		.cta-section {
+			padding: 1.5rem;
+		}
+	}
+</style>
