@@ -1,0 +1,175 @@
+---
+import { Footer } from '@/partials/Footer';
+import { Navbar } from '@/partials/Navbar';
+import { AppConfig } from '@/utils/AppConfig';
+
+export interface Props {
+  head: {
+    title: string;
+    description: string;
+  };
+}
+
+const {
+  head: { title, description },
+} = Astro.props as Props;
+---
+
+<html lang='en'>
+  <head>
+    <meta charset='UTF-8' />
+    <meta name='viewport' content='width=device-width, initial-scale=1.0' />
+    <title>{title}</title>
+    <meta name='description' content={description} />
+    <meta name='author' content={AppConfig.author} />
+
+    <link rel='alternate' type='application/rss+xml' href='/rss.xml' />
+    <link rel='icon' type='image/x-icon' href='/favicon.ico' />
+    
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+
+    <style is:inline>
+      /* ── Global reset ─────────────────────────────── */
+      *, *::before, *::after { box-sizing: border-box; }
+      html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
+      body { margin: 0; background-color: #091722; color: #D9E2EC; }
+      
+      /* ── Typography defaults ──────────────────────── */
+      h1, h2, h3, h4, h5, h6 {
+        font-family: 'Outfit', sans-serif;
+        color: #FFFFFF;
+        margin: 0;
+        font-weight: 600;
+        line-height: 1.15;
+      }
+      p, span, li, a, label { font-family: 'Inter', sans-serif; }
+
+      /* ── Marquee animation ────────────────────────── */
+      @keyframes marquee {
+        0%   { transform: translateX(0); }
+        100% { transform: translateX(-50%); }
+      }
+      .marquee-track {
+        display: flex;
+        width: max-content;
+        animation: marquee 28s linear infinite;
+      }
+      .marquee-track:hover { animation-play-state: paused; }
+
+      /* ── Scroll-reveal animations ─────────────────── */
+      [data-reveal] {
+        opacity: 0;
+        transform: translateY(28px);
+        transition: opacity 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94),
+                    transform 0.65s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+      }
+      [data-reveal].is-visible {
+        opacity: 1;
+        transform: translateY(0);
+      }
+      [data-reveal-delay="100"] { transition-delay: 0.1s; }
+      [data-reveal-delay="200"] { transition-delay: 0.2s; }
+      [data-reveal-delay="300"] { transition-delay: 0.3s; }
+      [data-reveal-delay="400"] { transition-delay: 0.4s; }
+      [data-reveal-delay="500"] { transition-delay: 0.5s; }
+
+      /* ── Hover micro-lift ─────────────────────────── */
+      .card-hover {
+        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+      }
+      .card-hover:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+        border-color: #1F4E79 !important;
+      }
+
+      /* ── Button hover ─────────────────────────────── */
+      .btn-primary {
+        background-color: #F4A261;
+        color: #091722;
+        transition: background-color 0.2s ease, transform 0.2s ease;
+      }
+      .btn-primary:hover { background-color: #DD8A3F; transform: translateY(-2px); }
+
+      .btn-secondary {
+        background-color: transparent;
+        color: #D9E2EC;
+        border: 1px solid #1E3A4C;
+        transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
+      }
+      .btn-secondary:hover { border-color: #1F4E79; background-color: rgba(31,78,121,0.1); transform: translateY(-2px); }
+
+      /* ── Accordion ────────────────────────────────── */
+      details > summary { cursor: pointer; list-style: none; }
+      details > summary::-webkit-details-marker { display: none; }
+      details[open] .faq-icon { transform: rotate(45deg); }
+      .faq-icon { transition: transform 0.25s ease; }
+
+      /* ── Sticky nav blur ──────────────────────────── */
+      .navbar-blur {
+        backdrop-filter: blur(12px);
+        -webkit-backdrop-filter: blur(12px);
+        background-color: rgba(9, 23, 34, 0.85) !important;
+      }
+
+      /* ── Grain / noise texture overlay ──────────────
+       * opacity: 0.18 — clearly visible on dark bg
+       * mix-blend-mode: soft-light — lightens without blowing out whites
+       * feComponentTransfer boosts the SVG contrast internally
+       * ──────────────────────────────────────────────── */
+      body::before {
+        content: '';
+        position: fixed;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        pointer-events: none;
+        z-index: 9999;
+        opacity: 0.18;
+        mix-blend-mode: soft-light;
+        background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='256' height='256'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.65' numOctaves='3' stitchTiles='stitch' result='noise'/%3E%3CfeColorMatrix type='saturate' values='0' result='grey'/%3E%3CfeComponentTransfer%3E%3CfeFuncR type='linear' slope='3' intercept='-1'/%3E%3CfeFuncG type='linear' slope='3' intercept='-1'/%3E%3CfeFuncB type='linear' slope='3' intercept='-1'/%3E%3C/feComponentTransfer%3E%3C/filter%3E%3Crect width='256' height='256' filter='url(%23n)'/%3E%3C/svg%3E");
+        background-repeat: repeat;
+        background-size: 256px 256px;
+      }
+
+      /* ── Subtle top radial glow ──────────────────── */
+      body::after {
+        content: '';
+        position: fixed;
+        top: -40%;
+        left: 50%;
+        transform: translateX(-50%);
+        width: 80vw;
+        height: 80vh;
+        pointer-events: none;
+        z-index: 0;
+        background: radial-gradient(ellipse at 50% 0%, rgba(31, 78, 121, 0.18) 0%, transparent 65%);
+      }
+    </style>
+  </head>
+  <body>
+    <Navbar />
+    <slot />
+    <Footer />
+
+    <!-- Scroll-reveal observer -->
+    <script is:inline>
+      (function () {
+        const observer = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (entry.isIntersecting) {
+                entry.target.classList.add('is-visible');
+                observer.unobserve(entry.target);
+              }
+            });
+          },
+          { threshold: 0.12 }
+        );
+        document.querySelectorAll('[data-reveal]').forEach((el) => observer.observe(el));
+      })();
+    </script>
+  </body>
+</html>

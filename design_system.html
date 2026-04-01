@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Aljava Studio Design System</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        :root {
+            /* Primary Colors */
+            --color-primary-blue: #1F4E79;
+            --color-primary-dark: #163A5F;
+
+            /* Secondary Colors */
+            --color-teal: #2A9D8F;
+            --color-teal-dark: #1F7F74;
+
+            /* Accent Colors */
+            --color-amber: #F4A261;
+            --color-amber-dark: #DD8A3F;
+
+            /* Neutrals */
+            --color-dark-text: #1F2933;
+            --color-bg-light: #F8FAFC;
+            --color-soft-grey: #D9E2EC;
+            --color-white: #FFFFFF;
+            --color-dark-bg: #0B1F2A;
+
+            /* Typography */
+            --font-primary: 'Atkinson Hyperlegible', 'Inter', sans-serif;
+            --font-inter: 'Inter', sans-serif;
+        }
+
+        body {
+            font-family: var(--font-primary);
+            background-color: var(--color-bg-light);
+            color: var(--color-dark-text);
+            margin: 0;
+            padding: 40px;
+            line-height: 1.5;
+        }
+
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 0;
+            font-weight: 700;
+            color: var(--color-primary-blue);
+        }
+
+        p {
+            max-width: 75ch;
+        }
+
+        .section {
+            margin-bottom: 60px;
+            padding: 40px;
+            background-color: var(--color-white);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.05); /* soft shadow */
+        }
+
+        .section-title {
+            font-family: var(--font-inter);
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            color: var(--color-teal);
+            margin-bottom: 30px;
+            font-weight: 600;
+        }
+
+        /* Color Palette Grid */
+        .color-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+            gap: 24px;
+            margin-bottom: 40px;
+        }
+
+        .color-card {
+            background-color: var(--color-white);
+            border-radius: 8px;
+            overflow: hidden;
+            display: flex;
+            flex-direction: column;
+            border: 1px solid var(--color-soft-grey);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.02);
+        }
+
+        .color-swatch {
+            height: 100px;
+            width: 100%;
+        }
+
+        .color-info {
+            padding: 15px;
+        }
+
+        .color-name {
+            font-weight: 700;
+            font-size: 16px;
+            margin-bottom: 5px;
+            color: var(--color-dark-text);
+        }
+
+        .color-hex {
+            color: var(--color-primary-blue);
+            font-size: 14px;
+            font-family: monospace;
+        }
+
+        /* Typography Styles */
+        .typo-row {
+            margin-bottom: 30px;
+            padding-bottom: 30px;
+            border-bottom: 1px solid var(--color-soft-grey);
+        }
+
+        .typo-row:last-child {
+            border-bottom: none;
+            margin-bottom: 0;
+            padding-bottom: 0;
+        }
+
+        .typo-label {
+            color: #666;
+            font-size: 14px;
+            margin-bottom: 10px;
+            font-family: monospace;
+        }
+
+        .h1-sample {
+            font-size: 3rem; 
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .h2-sample {
+            font-size: 2.4rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .h3-sample {
+            font-size: 1.9rem;
+            line-height: 1.2;
+            font-weight: 700;
+        }
+
+        .p-sample {
+            font-size: 1rem;
+            line-height: 1.6;
+            font-weight: 400;
+            color: var(--color-dark-text);
+        }
+
+        .small-sample {
+            font-size: 0.9rem;
+            line-height: 1.5;
+            font-weight: 400;
+            color: var(--color-dark-text);
+        }
+
+        /* Components */
+        .components-grid {
+            display: flex;
+            gap: 24px;
+            align-items: flex-end;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            padding: 12px 24px;
+            border-radius: 8px;
+            text-decoration: none;
+            cursor: pointer;
+            font-family: var(--font-primary);
+            font-weight: 700;
+            transition: all 0.2s ease;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.05); /* Slight elevation */
+        }
+
+        .btn-primary {
+            background-color: var(--color-primary-blue);
+            color: var(--color-white);
+            border: none;
+        }
+
+        .btn-primary:hover {
+            background-color: var(--color-primary-dark);
+            transform: translateY(-1px);
+            box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+        }
+
+        .btn-secondary {
+            background-color: var(--color-white);
+            color: var(--color-primary-blue);
+            border: 1px solid var(--color-soft-grey);
+        }
+
+        .btn-secondary:hover {
+            border-color: var(--color-primary-blue);
+            transform: translateY(-1px);
+        }
+
+        .btn-accent {
+            background-color: var(--color-amber);
+            color: var(--color-white);
+            border: none;
+        }
+
+        .btn-accent:hover {
+            background-color: var(--color-amber-dark);
+            transform: translateY(-1px);
+        }
+
+        .badge {
+            background-color: rgba(42, 157, 143, 0.15); /* Teal light opacity */
+            color: var(--color-teal);
+            padding: 6px 16px;
+            border-radius: 99px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            display: inline-block;
+        }
+
+    </style>
+</head>
+<body>
+
+    <h1 style="margin-bottom: 40px; font-size: 3rem;">Aljava Studio Design System</h1>
+
+    <!-- Colors Section -->
+    <div class="section">
+        <div class="section-title">Primary Colours</div>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--color-primary-blue);"></div>
+                <div class="color-info">
+                    <div class="color-name">Primary Blue</div>
+                    <div class="color-hex">#1F4E79</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--color-primary-dark);"></div>
+                <div class="color-info">
+                    <div class="color-name">Primary Dark</div>
+                    <div class="color-hex">#163A5F</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">Secondary & Accent Colours</div>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--color-teal);"></div>
+                <div class="color-info">
+                    <div class="color-name">Teal</div>
+                    <div class="color-hex">#2A9D8F</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--color-teal-dark);"></div>
+                <div class="color-info">
+                    <div class="color-name">Teal Dark</div>
+                    <div class="color-hex">#1F7F74</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--color-amber);"></div>
+                <div class="color-info">
+                    <div class="color-name">Amber</div>
+                    <div class="color-hex">#F4A261</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--color-amber-dark);"></div>
+                <div class="color-info">
+                    <div class="color-name">Amber Dark</div>
+                    <div class="color-hex">#DD8A3F</div>
+                </div>
+            </div>
+        </div>
+
+        <div class="section-title">Neutrals</div>
+        <div class="color-grid">
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--color-dark-text);"></div>
+                <div class="color-info">
+                    <div class="color-name">Dark Text</div>
+                    <div class="color-hex">#1F2933</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--color-dark-bg);"></div>
+                <div class="color-info">
+                    <div class="color-name">Dark Background</div>
+                    <div class="color-hex">#0B1F2A</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--color-bg-light); border-bottom: 1px solid var(--color-soft-grey);"></div>
+                <div class="color-info">
+                    <div class="color-name">Background Light</div>
+                    <div class="color-hex">#F8FAFC</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--color-soft-grey);"></div>
+                <div class="color-info">
+                    <div class="color-name">Soft Grey</div>
+                    <div class="color-hex">#D9E2EC</div>
+                </div>
+            </div>
+            <div class="color-card">
+                <div class="color-swatch" style="background-color: var(--color-white); border-bottom: 1px solid var(--color-soft-grey);"></div>
+                <div class="color-info">
+                    <div class="color-name">White</div>
+                    <div class="color-hex">#FFFFFF</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Typography Section -->
+    <div class="section">
+        <div class="section-title">Typography (Atkinson)</div>
+        
+        <div class="typo-row">
+            <div class="typo-label">H1 - Atkinson, 3.0rem+</div>
+            <div class="h1-sample">Launch fast. Look sharp.</div>
+        </div>
+        
+        <div class="typo-row">
+            <div class="typo-label">H2 - Atkinson, 2.4rem</div>
+            <div class="h2-sample">Premium without the endless meetings.</div>
+        </div>
+        
+        <div class="typo-row">
+            <div class="typo-label">H3 - Atkinson, 1.9rem</div>
+            <div class="h3-sample">Aljava Studio Principles</div>
+        </div>
+
+        <div class="typo-row">
+            <div class="typo-label">Body Text - Atkinson, 1rem - 1.125rem</div>
+            <div class="p-sample">
+                Aljava Studio’s design system is built around simplicity, clarity, and premium feel without complexity. We prioritize fast launches over endless perfection, giving you AI speed with human polish.
+            </div>
+        </div>
+
+        <div class="typo-row">
+            <div class="typo-label">Small - Atkinson, 0.9rem</div>
+            <div class="small-sample">
+                Just a website. No fluff.
+            </div>
+        </div>
+    </div>
+
+    <!-- UI Elements -->
+    <div class="section">
+        <div class="section-title">UI Elements</div>
+        <div class="components-grid">
+            <div>
+                <div class="typo-label">Primary Button</div>
+                <button class="btn btn-primary">Get Started</button>
+            </div>
+            <div>
+                <div class="typo-label">Secondary Button</div>
+                <button class="btn btn-secondary">Learn More</button>
+            </div>
+            <div>
+                <div class="typo-label">Accent Button</div>
+                <button class="btn btn-accent">Offer Highlight</button>
+            </div>
+            <div style="margin-left: 20px;">
+                <div class="typo-label">Badge</div>
+                <span class="badge">Premium Studio</span>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>
