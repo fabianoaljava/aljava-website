@@ -1,7 +1,5 @@
 const Footer = () => (
-  <footer
-    style={{ backgroundColor: '#091722', borderTop: '1px solid #1E3A4C' }}
-  >
+  <footer style={{ backgroundColor: '#091722' }}>
     <div className="mx-auto max-w-[1200px] px-5 py-12 md:px-8 md:py-16">
       {/* Top row */}
       <div className="mb-12 flex flex-col items-start justify-between gap-12 md:flex-row">
