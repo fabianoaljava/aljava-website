@@ -1,0 +1,158 @@
+---
+import Base from '@/templates/Base.astro';
+const updated = 'February 2026';
+---
+
+<Base
+  head={{
+    title: 'Cookie Policy — Aljava Studio',
+    description: 'Learn how we use cookies at Aljava Studio to provide a better experience for our visitors.',
+  }}
+>
+  <section style="background-color: #091722; min-height: calc(100vh - 140px);">
+    <div class="mx-auto max-w-[760px] px-5 py-24 md:px-8 md:py-32">
+
+      <p
+        class="mb-4 text-sm font-semibold uppercase tracking-widest"
+        style="font-family: 'Inter', sans-serif; color: #2A9D8F;"
+      >
+        Legal
+      </p>
+      <h1
+        style="font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 4vw, 3rem); color: #FFFFFF; font-weight: 600; line-height: 1.15; margin: 0 0 0.75rem;"
+      >
+        Cookie Policy
+      </h1>
+      <p class="mb-12 text-sm" style="font-family: 'Inter', sans-serif; color: #94A3B8;">
+        Last updated: {updated}
+      </p>
+
+      <div class="flex flex-col gap-10" style="font-family: 'Inter', sans-serif;">
+        
+        <div class="flex flex-col gap-3">
+          <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 600; color: #FFFFFF; margin: 0;">
+            What Are Cookies
+          </h2>
+          <p class="text-base leading-relaxed" style="color: #94A3B8; margin: 0;">
+            Cookies are small text files stored on your device when you visit a website. They help the website remember your preferences and understand how you interact with the site.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 600; color: #FFFFFF; margin: 0;">
+            How We Use Cookies
+          </h2>
+          <p class="text-base leading-relaxed" style="color: #94A3B8; margin: 0;">
+            Aljava Studio ("we", "us", "our") uses cookies across our website in the following categories:
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 600; color: #FFFFFF; margin: 0;">
+            Essential Cookies
+          </h2>
+          <p class="text-base leading-relaxed" style="color: #94A3B8; margin: 0;">
+            These cookies are required for the website to function properly. They cannot be disabled.
+          </p>
+          <div class="overflow-x-auto mt-2">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem; color: #94A3B8; text-align: left;">
+              <thead>
+                <tr style="border-bottom: 1px solid #1E3A4C;">
+                  <th style="padding: 0.75rem 0; font-weight: 600; color: #D9E2EC;">Cookie</th>
+                  <th style="padding: 0.75rem 0; font-weight: 600; color: #D9E2EC;">Purpose</th>
+                  <th style="padding: 0.75rem 0; font-weight: 600; color: #D9E2EC;">Duration</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #0F2433;">
+                  <td style="padding: 0.75rem 0;">aljava_consent</td>
+                  <td style="padding: 0.75rem 0;">Stores your cookie consent preferences</td>
+                  <td style="padding: 0.75rem 0;">Persistent (localStorage)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 600; color: #FFFFFF; margin: 0;">
+            Analytics Cookies
+          </h2>
+          <p class="text-base leading-relaxed" style="color: #94A3B8; margin: 0;">
+            These cookies help us understand how visitors use our website. They are only set after you provide explicit consent via the cookie banner. No personally identifiable information is collected.
+          </p>
+          <div class="overflow-x-auto mt-2">
+            <table style="width: 100%; border-collapse: collapse; font-size: 0.875rem; color: #94A3B8; text-align: left;">
+              <thead>
+                <tr style="border-bottom: 1px solid #1E3A4C;">
+                  <th style="padding: 0.75rem 0; font-weight: 600; color: #D9E2EC;">Cookie</th>
+                  <th style="padding: 0.75rem 0; font-weight: 600; color: #D9E2EC;">Purpose</th>
+                  <th style="padding: 0.75rem 0; font-weight: 600; color: #D9E2EC;">Duration</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr style="border-bottom: 1px solid #0F2433;">
+                  <td style="padding: 0.75rem 0;">aljava_sid</td>
+                  <td style="padding: 0.75rem 0;">Anonymous session identifier for analytics</td>
+                  <td style="padding: 0.75rem 0;">Session (sessionStorage)</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+          <p class="text-base leading-relaxed" style="color: #94A3B8; margin: 0;">
+            Analytics data is sent to our own servers. We do not use any third-party analytics services on our website. No data is shared with advertisers or third parties.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 600; color: #FFFFFF; margin: 0;">
+            How to Manage Cookies
+          </h2>
+          <p class="text-base leading-relaxed" style="color: #94A3B8; margin: 0;">
+            When you first visit our website, a cookie banner gives you the choice to accept all cookies or use essential cookies only. You can change your preference at any time by clearing your browser's local storage for our domain and revisiting the site.
+          </p>
+          <p class="text-base leading-relaxed" style="color: #94A3B8; margin: 0;">
+            You can also manage cookies through your browser settings. Most browsers allow you to block or delete cookies. Please note that blocking essential cookies may affect the functionality of some features.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 600; color: #FFFFFF; margin: 0;">
+            Third-Party Cookies
+          </h2>
+          <p class="text-base leading-relaxed" style="color: #94A3B8; margin: 0;">
+            Our website does not set any third-party cookies. We do not use advertising networks, social media trackers, or third-party analytics on aljava.studio.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 600; color: #FFFFFF; margin: 0;">
+            Client Websites
+          </h2>
+          <p class="text-base leading-relaxed" style="color: #94A3B8; margin: 0;">
+            Websites built and managed by Aljava Studio for our clients have their own cookie consent banners and policies. The cookies used on those sites may differ from those described here. Each client site has its own cookie policy accessible from its footer.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 600; color: #FFFFFF; margin: 0;">
+            Changes to This Policy
+          </h2>
+          <p class="text-base leading-relaxed" style="color: #94A3B8; margin: 0;">
+            We may update this cookie policy from time to time. Any changes will be posted on this page with an updated revision date.
+          </p>
+        </div>
+
+        <div class="flex flex-col gap-3">
+          <h2 style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 600; color: #FFFFFF; margin: 0;">
+            Contact
+          </h2>
+          <p class="text-base leading-relaxed" style="color: #94A3B8; margin: 0;">
+            If you have any questions about our use of cookies, please contact us at <a href="mailto:hello@aljava.studio" style="color: #F4A261; text-decoration: none;">hello@aljava.studio</a>.
+          </p>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Base>

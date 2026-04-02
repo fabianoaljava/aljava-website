@@ -322,7 +322,7 @@ const Pricing = () => {
 
                 {/* CTA */}
                 <a
-                  href="/contact/"
+                  href="/get-started/"
                   className={plan.highlighted ? 'btn-primary' : 'btn-secondary'}
                   style={{
                     fontFamily: "'Inter', sans-serif",

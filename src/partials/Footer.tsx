@@ -86,6 +86,7 @@ const Footer = () => (
         <div className="flex gap-6">
           {[
             { label: 'Privacy Policy', href: '/privacy-policy/' },
+            { label: 'Cookie Policy', href: '/cookie-policy/' },
             { label: 'Terms & Conditions', href: '/terms/' },
           ].map(({ label, href }) => (
             <a
