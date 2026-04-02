@@ -29,8 +29,8 @@ const Footer = () => (
             </p>
             <ul className="flex flex-col gap-3">
               {[
-                { label: 'How it Works', href: '#how-it-works' },
-                { label: 'What you get', href: '#what-you-get' },
+                { label: 'How it Works', href: '/#how-it-works' },
+                { label: 'What you get', href: '/#what-you-get' },
                 { label: 'Plans', href: '#plans' },
               ].map(({ label, href }) => (
                 <li key={label}>
