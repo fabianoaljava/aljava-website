@@ -1,10 +1,12 @@
 import { useEffect, useState } from 'react';
 
+import logo from '../images/aljava_logo_dark.svg';
+
 const navLinks = [
   { label: 'How it Works', href: '#how-it-works' },
-  { label: 'Features', href: '#features' },
-  { label: 'Pricing', href: '#pricing' },
-  { label: 'Contact', href: '#contact' },
+  { label: 'What you get', href: '#what-you-get' },
+  { label: 'Plans', href: '#plans' },
+  { label: 'Contact', href: '/contact/' },
 ];
 
 const Navbar = () => {
@@ -45,25 +47,8 @@ const Navbar = () => {
       >
         <div className="mx-auto flex max-w-[1200px] items-center justify-between p-5 md:px-8">
           {/* Logo */}
-          <a href="/" className="flex items-center gap-2 no-underline">
-            <div
-              className="flex h-9 w-9 items-center justify-center rounded-xl"
-              style={{ backgroundColor: '#1F4E79' }}
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path
-                  d="M10 2L17 6V14L10 18L3 14V6L10 2Z"
-                  fill="white"
-                  fillOpacity="0.9"
-                />
-              </svg>
-            </div>
-            <span
-              className="text-xl font-semibold tracking-tight"
-              style={{ color: '#FFFFFF', fontFamily: "'Outfit', sans-serif" }}
-            >
-              AI Studio
-            </span>
+          <a href="/" className="flex items-center no-underline">
+            <img src={logo.src} alt="Aljava" className="w-auto" />
           </a>
 
           {/* Desktop nav */}

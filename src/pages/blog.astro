@@ -1,0 +1,95 @@
+---
+import type { IFrontmatter } from 'astro-boilerplate-components';
+import Base from '@/templates/Base.astro';
+import { sortByDate } from '@/utils/Posts';
+
+const allPosts = await Astro.glob<IFrontmatter>('./posts/*.md');
+const posts = sortByDate(allPosts).slice(0, 12);
+---
+
+<Base
+  head={{
+    title: 'Blog — Aljava Studio',
+    description: 'Tips, insights and ideas on getting online, growing your business and making the most of your website.',
+  }}
+>
+  <!-- Header -->
+  <section style="background-color: #091722;">
+    <div class="mx-auto max-w-[1200px] px-5 py-24 md:px-8 md:py-32">
+      <div class="mb-16 max-w-[640px]">
+        <p
+          class="mb-4 text-sm font-semibold uppercase tracking-widest"
+          style="font-family: 'Inter', sans-serif; color: #2A9D8F;"
+        >
+          Blog
+        </p>
+        <h1
+          style="font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 4vw, 3rem); color: #FFFFFF; font-weight: 600; line-height: 1.15; margin: 0 0 1rem;"
+        >
+          Insights for businesses getting online
+        </h1>
+        <p
+          class="text-lg leading-relaxed"
+          style="font-family: 'Inter', sans-serif; color: #94A3B8;"
+        >
+          Tips, ideas and honest thinking on websites, design and growing your business online.
+        </p>
+      </div>
+
+      <!-- Post grid -->
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+        {posts.map((post) => (
+          <a
+            href={post.url}
+            class="card-hover flex flex-col overflow-hidden rounded-2xl no-underline"
+            style="background-color: #0F2433; border: 1px solid #1E3A4C;"
+          >
+            {post.frontmatter.imgSrc && (
+              <div class="overflow-hidden" style="aspect-ratio: 16/9;">
+                <img
+                  src={post.frontmatter.imgSrc}
+                  alt={post.frontmatter.imgAlt || post.frontmatter.title}
+                  class="h-full w-full object-cover"
+                />
+              </div>
+            )}
+            <div class="flex grow flex-col gap-3 p-6">
+              <div
+                class="flex items-center gap-3 text-xs"
+                style="font-family: 'Inter', sans-serif; color: #94A3B8;"
+              >
+                <span>{post.frontmatter.pubDate}</span>
+                {post.frontmatter.tags && post.frontmatter.tags[0] && (
+                  <>
+                    <span>·</span>
+                    <span style="color: #2A9D8F;">{post.frontmatter.tags[0]}</span>
+                  </>
+                )}
+              </div>
+              <h2
+                class="text-lg font-semibold leading-snug"
+                style="font-family: 'Outfit', sans-serif; color: #FFFFFF; margin: 0;"
+              >
+                {post.frontmatter.title}
+              </h2>
+              {post.frontmatter.description && (
+                <p
+                  class="text-sm leading-relaxed"
+                  style="font-family: 'Inter', sans-serif; color: #94A3B8;"
+                >
+                  {post.frontmatter.description}
+                </p>
+              )}
+              <span
+                class="mt-auto text-sm font-semibold"
+                style="font-family: 'Inter', sans-serif; color: #2A9D8F;"
+              >
+                Read article →
+              </span>
+            </div>
+          </a>
+        ))}
+      </div>
+    </div>
+  </section>
+</Base>

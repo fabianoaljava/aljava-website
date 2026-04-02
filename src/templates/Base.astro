@@ -1,4 +1,5 @@
 ---
+import '../styles/global.css';
 import { Footer } from '@/partials/Footer';
 import { Navbar } from '@/partials/Navbar';
 import { AppConfig } from '@/utils/AppConfig';
@@ -31,34 +32,7 @@ const {
     <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300;400;500;600;700;900&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
 
     <style is:inline>
-      /* ── Global reset ─────────────────────────────── */
-      *, *::before, *::after { box-sizing: border-box; }
-      html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; }
-      body { margin: 0; background-color: #091722; color: #D9E2EC; }
-      
-      /* ── Typography defaults ──────────────────────── */
-      h1, h2, h3, h4, h5, h6 {
-        font-family: 'Outfit', sans-serif;
-        color: #FFFFFF;
-        margin: 0;
-        font-weight: 600;
-        line-height: 1.15;
-      }
-      p, span, li, a, label { font-family: 'Inter', sans-serif; }
-
-      /* ── Marquee animation ────────────────────────── */
-      @keyframes marquee {
-        0%   { transform: translateX(0); }
-        100% { transform: translateX(-50%); }
-      }
-      .marquee-track {
-        display: flex;
-        width: max-content;
-        animation: marquee 28s linear infinite;
-      }
-      .marquee-track:hover { animation-play-state: paused; }
-
-      /* ── Scroll-reveal animations ─────────────────── */
+      /* ── Scroll-reveal transitions ─────────────────── */
       [data-reveal] {
         opacity: 0;
         transform: translateY(28px);
@@ -75,50 +49,7 @@ const {
       [data-reveal-delay="400"] { transition-delay: 0.4s; }
       [data-reveal-delay="500"] { transition-delay: 0.5s; }
 
-      /* ── Hover micro-lift ─────────────────────────── */
-      .card-hover {
-        transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
-      }
-      .card-hover:hover {
-        transform: translateY(-5px);
-        box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
-        border-color: #1F4E79 !important;
-      }
-
-      /* ── Button hover ─────────────────────────────── */
-      .btn-primary {
-        background-color: #F4A261;
-        color: #091722;
-        transition: background-color 0.2s ease, transform 0.2s ease;
-      }
-      .btn-primary:hover { background-color: #DD8A3F; transform: translateY(-2px); }
-
-      .btn-secondary {
-        background-color: transparent;
-        color: #D9E2EC;
-        border: 1px solid #1E3A4C;
-        transition: border-color 0.2s ease, background-color 0.2s ease, transform 0.2s ease;
-      }
-      .btn-secondary:hover { border-color: #1F4E79; background-color: rgba(31,78,121,0.1); transform: translateY(-2px); }
-
-      /* ── Accordion ────────────────────────────────── */
-      details > summary { cursor: pointer; list-style: none; }
-      details > summary::-webkit-details-marker { display: none; }
-      details[open] .faq-icon { transform: rotate(45deg); }
-      .faq-icon { transition: transform 0.25s ease; }
-
-      /* ── Sticky nav blur ──────────────────────────── */
-      .navbar-blur {
-        backdrop-filter: blur(12px);
-        -webkit-backdrop-filter: blur(12px);
-        background-color: rgba(9, 23, 34, 0.85) !important;
-      }
-
-      /* ── Grain / noise texture overlay ──────────────
-       * opacity: 0.18 — clearly visible on dark bg
-       * mix-blend-mode: soft-light — lightens without blowing out whites
-       * feComponentTransfer boosts the SVG contrast internally
-       * ──────────────────────────────────────────────── */
+      /* ── Grain / noise texture overlay ─────────────── */
       body::before {
         content: '';
         position: fixed;
@@ -134,7 +65,7 @@ const {
         background-size: 256px 256px;
       }
 
-      /* ── Subtle top radial glow ──────────────────── */
+      /* ── Subtle top radial glow ─────────────────────── */
       body::after {
         content: '';
         position: fixed;

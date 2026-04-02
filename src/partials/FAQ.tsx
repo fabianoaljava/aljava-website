@@ -1,27 +1,39 @@
 const faqs = [
   {
-    q: 'How does the AI generate designs?',
-    a: 'Our AI uses advanced machine learning models trained on millions of design patterns to generate unique, tailored designs based on your brief and preferences.',
+    q: 'How does it work?',
+    a: 'We take a few details about your business and generate a clean website using AI. Then we review it to make sure it looks right and is ready to go live.',
   },
   {
-    q: 'Can I customize the AI-generated designs?',
-    a: 'Absolutely. Every design can be refined and customized using our intuitive editor. Adjust colors, fonts, layouts, and more to match your vision perfectly.',
+    q: 'Is it really free to start?',
+    a: 'Yes. You can start with a free website for 3 months. After that, it continues at £29.90/month if you want to keep it live.',
   },
   {
-    q: 'What support options are available?',
-    a: 'We offer email support on all plans. Pro users get priority support, and Enterprise clients have a dedicated account manager available 24/7.',
+    q: 'Can I customise my website?',
+    a: 'Yes — but we keep it simple. You can upgrade to the Studio plan if you want a more refined look, branding and layout improvements.',
   },
   {
-    q: 'Is there a free trial available?',
-    a: 'Yes! Our Free plan lets you experience the core features without any credit card required. Upgrade anytime when you need more power.',
+    q: "What's the difference between Launch and Studio?",
+    a: 'Launch is fast and functional. Studio adds a more polished, premium feel with logo options, design system and better visual structure.',
   },
   {
-    q: 'How secure is my data?',
-    a: 'We take security seriously. All data is encrypted in transit and at rest. We are SOC 2 Type II compliant and your designs are never used to train our models.',
+    q: 'Do I need to manage anything technical?',
+    a: 'No. We handle hosting, setup and updates. You just tell us what you need.',
   },
   {
-    q: 'What integrations are available?',
-    a: 'We integrate with Figma, Adobe XD, Sketch, Notion, Asana, Slack, Jira, and GitHub. More integrations are added regularly based on user feedback.',
+    q: 'Can I upgrade later?',
+    a: 'Yes. You can start simple and upgrade anytime as your business grows.',
+  },
+  {
+    q: 'How long does it take to get online?',
+    a: 'Usually within a few days. The goal is to get you live quickly, not stuck in a long process.',
+  },
+  {
+    q: 'Do you offer refunds?',
+    a: "You're not locked in. If it's not right for you, you can cancel anytime.",
+  },
+  {
+    q: 'Can you add booking, ecommerce or automation?',
+    a: "Yes — that's part of the Advanced plan. Perfect if you want to grow beyond a simple website.",
   },
 ];
 
@@ -53,8 +65,8 @@ const FAQ = () => (
             className="text-base leading-relaxed"
             style={{ fontFamily: "'Inter', sans-serif", color: '#94A3B8' }}
           >
-            Have questions about our AI-Powered Design Assistant? Find answers
-            to the most common questions below.
+            Everything you need to know before getting started. Can't find your
+            answer? Just get in touch.
           </p>
         </div>
 

@@ -1,45 +1,45 @@
 const reviews = [
   {
-    name: 'John D.',
-    role: 'Creative Director',
+    name: 'Sarah T.',
+    role: 'Founder, Bloom Coffee',
     avatar: '#1F4E79',
     quote:
-      "Using this AI-powered design assistant has completely transformed the way I approach my projects. It's like having a professional designer on call 24/7. Highly recommend it!",
+      'We needed a website for our new cafe in days, not weeks. Aljava Studio got us live with a stunning, professional site before our grand opening. The speed is unmatched.',
   },
   {
-    name: 'Michael S.',
-    role: 'Freelance Designer',
+    name: 'Mark R.',
+    role: 'Director, Green Steps NGO',
     avatar: '#2A9D8F',
     quote:
-      'The design suggestions are spot on and the automated features save me so much time. I can focus more on creativity rather than getting bogged down in details.',
+      "As a small charity, we didn't have the budget for a big agency. Aljava gave us a credible online presence that looks like it cost thousands. Truly a life-saver.",
   },
   {
-    name: 'David L.',
-    role: 'Marketing Manager',
+    name: 'Elena G.',
+    role: 'CEO, TechFlow Startup',
     avatar: '#F4A261',
     quote:
-      "This tool is a game-changer! It's incredibly intuitive and the results are always impressive. I can't imagine working without it now.",
+      'The Launch plan was perfect for our MVP. We recently upgraded to the Studio plan for a more refined brand identity, and the transition was seamless and professional.',
   },
   {
-    name: 'James K.',
-    role: 'Agency Founder',
+    name: 'James W.',
+    role: 'Property Consultant',
     avatar: '#163A5F',
     quote:
-      "I was skeptical at first, but this AI assistant exceeded all my expectations. It's easy to use and delivers professional-grade designs effortlessly.",
+      "I'm not a tech person, so I wanted someone to handle everything. Aljava Studio takes care of the technical fluff so I can focus entirely on my clients and business.",
   },
   {
-    name: 'Robert P.',
-    role: 'Brand Strategist',
+    name: 'Olivia L.',
+    role: 'E-commerce Founder',
     avatar: '#1F7F74',
     quote:
-      'What an amazing tool! The AI understands my needs perfectly and helps me create stunning designs in no time. My productivity has doubled!',
+      "The Advanced plan's automation features have saved me hours of manual work every week. It's fast to build, but properly finished with excellent user experience.",
   },
   {
-    name: 'William M.',
-    role: 'UX Lead',
+    name: 'Daniel K.',
+    role: 'Independent Consultant',
     avatar: '#DD8A3F',
     quote:
-      "I love how this AI-powered assistant blends technology and creativity. It's a must-have for any designer looking to streamline their workflow.",
+      'The clean, modern design has significantly improved my conversion rates. People now take my business seriously because of the professional site Aljava built for me.',
   },
 ];
 
@@ -73,14 +73,14 @@ const Testimonials = () => (
             lineHeight: 1.15,
           }}
         >
-          Customer Success Stories
+          Real businesses. Real results.
         </h2>
         <p
           className="mx-auto max-w-xl text-lg"
           style={{ fontFamily: "'Inter', sans-serif", color: '#94A3B8' }}
         >
-          Discover how our platform has helped businesses create outstanding
-          content effortlessly.
+          See how startups and small businesses went from nothing to a clean,
+          professional online presence — quickly and without the usual hassle.
         </p>
       </div>
 

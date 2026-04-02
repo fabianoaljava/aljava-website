@@ -21,56 +21,93 @@ const CheckIcon = ({ color = '#2A9D8F' }: { color?: string }) => (
 
 type PlanData = {
   name: string;
-  monthly: { price: string; description: string };
-  yearly: { price: string; description: string; badge?: string };
+  monthly: {
+    price: string;
+    description: string;
+    subNote?: string;
+    badge?: string;
+  };
+  yearly: {
+    price: string;
+    description: string;
+    subNote?: string;
+    badge?: string;
+  };
   features: string[];
+  note?: string;
   cta: string;
   highlighted: boolean;
 };
 
 const plans: PlanData[] = [
   {
-    name: 'Free',
-    monthly:  { price: '$0',    description: 'Free forever' },
-    yearly:   { price: '$0',    description: 'Free forever' },
+    name: 'Launch',
+    monthly: {
+      price: '£0',
+      description: 'Free for 3 months',
+      subNote: 'then £29.90/month',
+    },
+    yearly: {
+      price: '£0',
+      description: 'Free for 3 months',
+      subNote: 'then £23.92/month (−20%)',
+      badge: 'Save 20%',
+    },
     features: [
-      'Basic AI-generated designs',
-      'Access to customization tools',
-      'Standard templates library',
-      '5 projects per month',
+      'Automated website',
+      'Fast setup',
+      'Clean and functional',
+      'Hosting included',
     ],
-    cta: 'Get Started Free',
+    note: 'Best for: Startups, side projects, new businesses',
+    cta: 'Get your free website',
     highlighted: false,
   },
   {
-    name: 'Pro',
-    monthly: { price: '$14.99', description: 'Billed monthly' },
-    yearly:  { price: '$11.99', description: 'Billed yearly — save $35.88', badge: 'Save 20%' },
+    name: 'Studio',
+    monthly: {
+      price: '£39.90',
+      description: 'Per month + one-off setup',
+    },
+    yearly: {
+      price: '£31.92',
+      description: 'Per month, billed yearly',
+      subNote: '+ one-off setup fee',
+      badge: 'Save 20%',
+    },
     features: [
-      'Advanced AI-generated designs',
-      'Full access to customization tools',
-      'Premium templates library',
-      'Unlimited projects',
-      'Real-time collaboration',
-      'Priority email support',
+      'Everything in Launch',
+      '3 logo options',
+      'Mini design system',
+      'Styling based on websites you like',
+      'Refined layout and spacing',
+      'Stronger visual hierarchy',
     ],
-    cta: 'Start Pro',
+    note: 'Premium without the endless meetings.',
+    cta: 'Get started with Studio',
     highlighted: true,
   },
   {
-    name: 'Enterprise',
-    monthly: { price: '$29.99', description: 'Billed monthly' },
-    yearly:  { price: '$23.99', description: 'Billed yearly — save $71.88', badge: 'Save 20%' },
+    name: 'Advanced',
+    monthly: {
+      price: '£249.90',
+      description: 'Per month',
+    },
+    yearly: {
+      price: '£199.92',
+      description: 'Per month, billed yearly',
+      badge: 'Save 20%',
+    },
     features: [
-      'All features included in Pro Plan',
-      'Dedicated account manager',
-      'Custom AI solutions and designs',
-      'Onboarding and training sessions',
-      '24/7 priority support',
-      'Advanced analytics and reporting',
-      'Secure cloud storage',
+      'Everything in Studio',
+      'Advanced UX',
+      'Booking systems',
+      'Ecommerce',
+      'Automations',
+      'Ongoing optimisation',
     ],
-    cta: 'Contact Sales',
+    note: 'Best for: Businesses ready to grow and scale',
+    cta: 'Contact us',
     highlighted: false,
   },
 ];
@@ -79,7 +116,7 @@ const Pricing = () => {
   const [isYearly, setIsYearly] = useState(false);
 
   return (
-    <section id="pricing" style={{ backgroundColor: '#091722' }}>
+    <section id="plans" style={{ backgroundColor: '#091722' }}>
       <div className="mx-auto max-w-[1200px] px-5 py-24 md:px-8 md:py-32">
         {/* Header */}
         <div className="mb-16 text-center" data-reveal>
@@ -87,7 +124,7 @@ const Pricing = () => {
             className="mb-4 text-sm font-semibold uppercase tracking-widest"
             style={{ fontFamily: "'Inter', sans-serif", color: '#2A9D8F' }}
           >
-            Pricing
+            Plans
           </p>
           <h2
             style={{
@@ -99,13 +136,14 @@ const Pricing = () => {
               lineHeight: 1.15,
             }}
           >
-            Start simple. Grow when you're ready.
+            Start simple. Grow when you&apos;re ready.
           </h2>
           <p
             className="mx-auto max-w-xl text-lg"
             style={{ fontFamily: "'Inter', sans-serif", color: '#94A3B8' }}
           >
-            Choose the perfect plan for your design projects, from startups to enterprises.
+            No long contracts. No complicated setup. Just a clean website that
+            works.
           </p>
 
           {/* Monthly / Yearly toggle */}
@@ -114,6 +152,7 @@ const Pricing = () => {
             style={{ backgroundColor: '#0F2433', border: '1px solid #1E3A4C' }}
           >
             <button
+              type="button"
               onClick={() => setIsYearly(false)}
               className="rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200"
               style={{
@@ -125,6 +164,7 @@ const Pricing = () => {
               Monthly
             </button>
             <button
+              type="button"
               onClick={() => setIsYearly(true)}
               className="flex items-center gap-2 rounded-full px-5 py-2 text-sm font-semibold transition-all duration-200"
               style={{
@@ -134,7 +174,6 @@ const Pricing = () => {
               }}
             >
               Yearly
-              {/* "Save 20%" pill */}
               <span
                 className="rounded-full px-2 py-0.5 text-xs font-bold"
                 style={{ backgroundColor: '#2A9D8F22', color: '#2A9D8F' }}
@@ -145,8 +184,8 @@ const Pricing = () => {
           </div>
         </div>
 
-        {/* Plans grid */}
-        <div className="grid grid-cols-1 items-stretch gap-5 md:grid-cols-3">
+        {/* Cards */}
+        <div className="grid grid-cols-1 gap-5 md:grid-cols-3">
           {plans.map((plan, idx) => {
             const billing = isYearly ? plan.yearly : plan.monthly;
             return (
@@ -155,8 +194,12 @@ const Pricing = () => {
                 className="card-hover relative flex flex-col gap-8 rounded-2xl p-7"
                 style={{
                   backgroundColor: '#0F2433',
-                  border: plan.highlighted ? '1px solid #1F4E79' : '1px solid #1E3A4C',
-                  boxShadow: plan.highlighted ? '0 0 40px rgba(31,78,121,0.12)' : 'none',
+                  border: plan.highlighted
+                    ? '1px solid #1F4E79'
+                    : '1px solid #1E3A4C',
+                  boxShadow: plan.highlighted
+                    ? '0 0 40px rgba(31,78,121,0.12)'
+                    : 'none',
                   transform: plan.highlighted ? 'scale(1.02)' : 'none',
                 }}
                 data-reveal
@@ -188,18 +231,20 @@ const Pricing = () => {
                     >
                       {plan.name}
                     </p>
-                    {/* Yearly saving badge per card */}
                     {isYearly && billing.badge && (
                       <span
                         className="rounded-full px-2.5 py-0.5 text-xs font-bold"
-                        style={{ backgroundColor: '#2A9D8F22', color: '#2A9D8F' }}
+                        style={{
+                          backgroundColor: '#2A9D8F22',
+                          color: '#2A9D8F',
+                        }}
                       >
                         {billing.badge}
                       </span>
                     )}
                   </div>
 
-                  <div className="mb-1 flex items-end gap-1">
+                  <div className="mb-1">
                     <span
                       style={{
                         fontFamily: "'Outfit', sans-serif",
@@ -212,24 +257,33 @@ const Pricing = () => {
                     >
                       {billing.price}
                     </span>
-                    {billing.price !== '$0' && (
-                      <span
-                        className="mb-1 text-lg"
-                        style={{ fontFamily: "'Inter', sans-serif", color: '#94A3B8' }}
-                      >
-                        /m
-                      </span>
-                    )}
                   </div>
                   <p
                     className="text-sm"
-                    style={{ fontFamily: "'Inter', sans-serif", color: '#94A3B8' }}
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      color: '#94A3B8',
+                    }}
                   >
                     {billing.description}
                   </p>
+                  {billing.subNote && (
+                    <p
+                      className="mt-1 text-xs"
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        color: '#1F7F74',
+                      }}
+                    >
+                      {billing.subNote}
+                    </p>
+                  )}
                 </div>
 
-                <div className="h-px w-full" style={{ backgroundColor: '#1E3A4C' }} />
+                <div
+                  className="h-px w-full"
+                  style={{ backgroundColor: '#1E3A4C' }}
+                />
 
                 {/* Features */}
                 <ul className="flex grow flex-col gap-3.5">
@@ -237,17 +291,38 @@ const Pricing = () => {
                     <li
                       key={feat}
                       className="flex items-start gap-2.5 text-sm"
-                      style={{ fontFamily: "'Inter', sans-serif", color: '#D9E2EC' }}
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        color: '#D9E2EC',
+                      }}
                     >
-                      <CheckIcon color={plan.highlighted ? '#F4A261' : '#2A9D8F'} />
+                      <CheckIcon
+                        color={plan.highlighted ? '#F4A261' : '#2A9D8F'}
+                      />
                       {feat}
                     </li>
                   ))}
                 </ul>
 
+                {/* Plan note */}
+                {plan.note && (
+                  <p
+                    className="text-xs leading-relaxed"
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      color: plan.highlighted ? '#F4A261' : '#94A3B8',
+                      borderLeft: '2px solid',
+                      borderColor: plan.highlighted ? '#F4A261' : '#1E3A4C',
+                      paddingLeft: '0.75rem',
+                    }}
+                  >
+                    {plan.note}
+                  </p>
+                )}
+
                 {/* CTA */}
                 <a
-                  href="#"
+                  href="/contact/"
                   className={plan.highlighted ? 'btn-primary' : 'btn-secondary'}
                   style={{
                     fontFamily: "'Inter', sans-serif",

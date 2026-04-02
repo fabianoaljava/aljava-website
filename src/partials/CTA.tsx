@@ -32,14 +32,14 @@ const CTA = () => (
               margin: '0 0 1.25rem',
             }}
           >
-            Start Your Design Journey
+            Get started
           </h2>
           <p
             className="text-lg leading-relaxed"
             style={{ fontFamily: "'Inter', sans-serif", color: '#94A3B8' }}
           >
-            Sign up now and experience the power of AI-driven design without any
-            commitment.
+            Get online fast with a clean, professional website — then upgrade to
+            a more premium look when you’re ready.
           </p>
         </div>
 
@@ -53,14 +53,14 @@ const CTA = () => (
             className="btn-primary inline-flex items-center justify-center rounded-xl px-8 py-3.5 text-sm font-semibold no-underline"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
-            Get Started for Free
+            Get your free website
           </a>
           <a
             href="#"
             className="btn-secondary inline-flex items-center justify-center rounded-xl px-8 py-3.5 text-sm font-semibold no-underline"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
-            Book a Demo
+            Request a premium version
           </a>
         </div>
       </div>

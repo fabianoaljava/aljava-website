@@ -1,0 +1,114 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* ── Base resets ───────────────────────────────────────────── */
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+  }
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  body {
+    margin: 0;
+    background-color: #091722;
+    color: #d9e2ec;
+  }
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    font-family: 'Outfit', sans-serif;
+    color: #ffffff;
+    margin: 0;
+    font-weight: 600;
+    line-height: 1.15;
+  }
+  p,
+  span,
+  li,
+  a,
+  label {
+    font-family: 'Inter', sans-serif;
+  }
+}
+
+/* ── Reusable component classes ───────────────────────────── */
+@layer components {
+  /* Marquee */
+  .marquee-track {
+    display: flex;
+    width: max-content;
+    animation: marquee 28s linear infinite;
+  }
+  .marquee-track:hover {
+    animation-play-state: paused;
+  }
+
+  /* Card hover lift */
+  .card-hover {
+    transition: transform 0.25s ease, box-shadow 0.25s ease,
+      border-color 0.25s ease;
+  }
+  .card-hover:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 16px 40px rgba(0, 0, 0, 0.3);
+    border-color: #1f4e79 !important;
+  }
+
+  /* Primary button */
+  .btn-primary {
+    background-color: #f4a261;
+    color: #091722;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+  }
+  .btn-primary:hover {
+    background-color: #dd8a3f;
+    transform: translateY(-2px);
+  }
+
+  /* Secondary button */
+  .btn-secondary {
+    background-color: transparent;
+    color: #d9e2ec;
+    border: 1px solid #1e3a4c;
+    transition: border-color 0.2s ease, background-color 0.2s ease,
+      transform 0.2s ease;
+  }
+  .btn-secondary:hover {
+    border-color: #1f4e79;
+    background-color: rgba(31, 78, 121, 0.1);
+    transform: translateY(-2px);
+  }
+
+  /* FAQ accordion icon */
+  .faq-icon {
+    transition: transform 0.25s ease;
+  }
+  details[open] .faq-icon {
+    transform: rotate(45deg);
+  }
+
+  /* Navbar blur */
+  .navbar-blur {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    background-color: rgba(9, 23, 34, 0.85) !important;
+  }
+}
+
+/* ── Keyframes (must live at root, not inside @layer) ────── */
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}

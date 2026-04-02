@@ -1,0 +1,88 @@
+---
+import Base from '@/templates/Base.astro';
+const updated = 'April 2025';
+---
+
+<Base
+  head={{
+    title: 'Terms & Conditions — Aljava Studio',
+    description: 'Terms and conditions for using Aljava Studio services.',
+  }}
+>
+  <section style="background-color: #091722; min-height: calc(100vh - 140px);">
+    <div class="mx-auto max-w-[760px] px-5 py-24 md:px-8 md:py-32">
+
+      <p
+        class="mb-4 text-sm font-semibold uppercase tracking-widest"
+        style="font-family: 'Inter', sans-serif; color: #2A9D8F;"
+      >
+        Legal
+      </p>
+      <h1
+        style="font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 4vw, 3rem); color: #FFFFFF; font-weight: 600; line-height: 1.15; margin: 0 0 0.75rem;"
+      >
+        Terms & Conditions
+      </h1>
+      <p class="mb-12 text-sm" style="font-family: 'Inter', sans-serif; color: #94A3B8;">
+        Last updated: {updated}
+      </p>
+
+      <div class="flex flex-col gap-10" style="font-family: 'Inter', sans-serif;">
+        {[
+          {
+            title: '1. About these terms',
+            body: 'These terms apply to all services provided by Aljava Studio. By using our services you agree to these terms. Please read them carefully.',
+          },
+          {
+            title: '2. Our services',
+            body: 'Aljava Studio builds, manages and hosts websites for businesses, startups and charities. The scope of work is agreed before we begin. We reserve the right to update or change our service offerings at any time.',
+          },
+          {
+            title: '3. Free launch period',
+            body: 'New clients receive a complimentary website for the first 3 months. After this period, a monthly subscription fee applies. If you no longer wish to continue, you may cancel at any time before the trial ends and no charge will be made.',
+          },
+          {
+            title: '4. Subscriptions and billing',
+            body: 'Paid plans are billed monthly or yearly as agreed. Payments are due at the start of each billing period. We reserve the right to suspend services if payment is not received.',
+          },
+          {
+            title: '5. Cancellation',
+            body: 'You can cancel your subscription at any time. Cancellation takes effect at the end of the current billing period. We do not offer refunds for partial billing periods unless otherwise agreed.',
+          },
+          {
+            title: '6. Ownership of content',
+            body: 'Any content you provide (text, images, brand assets) remains your property. Aljava Studio retains no ownership over client-supplied materials. The website design and code we produce is yours once the service relationship begins.',
+          },
+          {
+            title: '7. Acceptable use',
+            body: 'You agree not to use our services for any unlawful purpose, or in a way that could damage our reputation or the experience of others. We reserve the right to terminate services for breach of this clause.',
+          },
+          {
+            title: '8. Limitations of liability',
+            body: 'We take care to deliver quality work, but cannot guarantee that our websites will be error-free at all times. We are not liable for any indirect losses, including loss of income or business opportunity, arising from use of our services.',
+          },
+          {
+            title: '9. Changes to these terms',
+            body: 'We may update these terms from time to time. We will notify existing clients of significant changes. Continued use of our services after changes are posted constitutes acceptance.',
+          },
+          {
+            title: '10. Contact',
+            body: 'If you have questions about these terms, please get in touch at hello@aljava.studio.',
+          },
+        ].map((section) => (
+          <div class="flex flex-col gap-3">
+            <h2
+              style="font-family: 'Outfit', sans-serif; font-size: 1.2rem; font-weight: 600; color: #FFFFFF; margin: 0;"
+            >
+              {section.title}
+            </h2>
+            <p class="text-base leading-relaxed" style="color: #94A3B8; margin: 0;">
+              {section.body}
+            </p>
+          </div>
+        ))}
+      </div>
+
+    </div>
+  </section>
+</Base>
