@@ -1,20 +1,22 @@
 const steps = [
   {
     number: '01',
-    title: 'Upload Brief',
-    description: 'Share your project details and let our AI grasp your vision.',
+    title: 'Tell us about your business',
+    description:
+      'Share a few details about what you do. No long forms. No complicated briefing.',
     color: '#1F4E79',
   },
   {
     number: '02',
-    title: 'Generate Designs',
-    description: 'Watch as our AI crafts unique design ideas tailored to you.',
+    title: 'We generate your website',
+    description:
+      'We use AI to build your first version quickly — clean, structured and ready to go.',
     color: '#2A9D8F',
   },
   {
     number: '03',
-    title: 'Refine Creation',
-    description: 'Perfect your chosen concept with easy-to-use AI tools.',
+    title: 'You review and go live',
+    description: "Happy with it? We publish it. You're online.",
     color: '#F4A261',
   },
 ];
@@ -40,15 +42,14 @@ const HowItWorks = () => (
             lineHeight: 1.15,
           }}
         >
-          Unleash Your Creativity
+          Simple. Fast. Done.
         </h2>
         <p
           className="text-lg leading-relaxed"
           style={{ fontFamily: "'Inter', sans-serif", color: '#94A3B8' }}
         >
-          Discover how our AI-Powered Design Assistant transforms your ideas
-          into stunning designs effortlessly. Follow these simple steps to turn
-          your vision into reality.
+          See how we turn your idea into a clean, professional website — quickly
+          and without the usual hassle.
         </p>
       </div>
 

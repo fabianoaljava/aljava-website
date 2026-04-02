@@ -1,9 +1,7 @@
 ---
 import { Hero } from '@/partials/Hero';
-import { TrustedBy } from '@/partials/TrustedBy';
 import { HowItWorks } from '@/partials/HowItWorks';
-import { Features } from '@/partials/Features';
-import { FeatureShowcase } from '@/partials/FeatureShowcase';
+import { WhatYouGet } from '@/partials/WhatYouGet';
 import { Pricing } from '@/partials/Pricing';
 import { Integrations } from '@/partials/Integrations';
 import { Testimonials } from '@/partials/Testimonials';
@@ -20,11 +18,9 @@ import Base from '@/templates/Base.astro';
   }}
 >
   <Hero />
-  <TrustedBy />
   <HowItWorks />
-  <Features />
-  <FeatureShowcase />
-  <Pricing />
+  <WhatYouGet />
+  <Pricing client:load />
   <Integrations />
   <Testimonials />
   <FAQ />

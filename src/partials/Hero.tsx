@@ -18,16 +18,21 @@ const Hero = () => (
                 fontWeight: 600,
               }}
             >
-              Your AI-Powered
+              Just a website.
               <br />
-              Design Assistant
+              No fluff.
             </h1>
             <p
               className="max-w-[480px] text-base leading-relaxed md:text-lg"
               style={{ fontFamily: "'Inter', sans-serif", color: '#94A3B8' }}
             >
-              Unlock your creative potential. Seamlessly generate, customize,
-              and perfect your designs with cutting-edge AI technology.
+              Get online fast with a clean, professional website — then upgrade
+              to a more premium look when you’re ready.
+            </p>
+
+            <p>
+              Built for startups, small businesses and charities that just need
+              something that works — without the usual agency process.
             </p>
           </div>
 
@@ -50,14 +55,14 @@ const Hero = () => (
               >
                 <path d="M8 5v14l11-7z" />
               </svg>
-              Get Started for Free
+              Get your free website
             </a>
             <a
               href="#"
               className="btn-secondary inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold no-underline"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
-              How it works
+              See how it works
             </a>
           </div>
         </div>
