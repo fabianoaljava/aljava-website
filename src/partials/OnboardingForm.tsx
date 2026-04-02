@@ -393,6 +393,9 @@ const INITIAL: FormValues = {
 };
 
 /* ── Shared CSS-in-JS helpers ───────────────────────────────── */
+const WEBHOOK_URL =
+  'https://hook.eu2.make.com/1adwlvd3hghb4m30wwihwjg6wmidpclv';
+
 const S = {
   bg: '#091722',
   surface: '#0F2433',
@@ -439,6 +442,8 @@ const OnboardingForm = () => {
   const [values, setValues] = useState<FormValues>({ ...INITIAL });
   const [errors, setErrors] = useState<Record<string, string>>({});
   const [submitted, setSubmitted] = useState(false);
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitError, setSubmitError] = useState('');
 
   const current = STEPS[step]!;
   const total = STEPS.length;
@@ -480,12 +485,72 @@ const OnboardingForm = () => {
     return Object.keys(errs).length === 0;
   };
 
-  const handleNext = () => {
+  const submitForm = async () => {
+    const payload = {
+      name: values.name,
+      email: values.email,
+      phone: values.phone,
+      businessName: values.businessName,
+      businessDescription: values.businessDescription,
+      stage: values.businessStage,
+      location: values.location,
+      audience: values.targetAudience,
+      plan: values.package,
+      websiteGoal: values.websiteGoals,
+      mainCta: values.primaryAction,
+      existingWebsite: values.hasWebsite,
+      currentUrl: values.currentWebsiteUrl,
+      service1: values.service1,
+      service2: values.service2,
+      service3: values.service3,
+      showPrices: values.showPrices,
+      pricingDetails: values.pricingDetails,
+      style: values.style,
+      tone: values.toneOfVoice,
+      brandColours: values.brandColors,
+      logo: values.hasLogo,
+      referenceWebsites: values.websitesLike,
+      contentReady: values.hasContent,
+      imagesReady: values.hasImages,
+      timeline: values.timeline,
+      notes: values.additionalInfo,
+      consent: values.consent,
+      hasBrandColors: values.hasBrandColors,
+    };
+
+    setIsSubmitting(true);
+    setSubmitError('');
+
+    try {
+      const response = await fetch(WEBHOOK_URL, {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(payload),
+      });
+
+      if (!response.ok) {
+        throw new Error('Webhook submission failed.');
+      }
+
+      setSubmitted(true);
+    } catch {
+      setSubmitError(
+        'We could not send your request right now. Please try again in a moment.'
+      );
+    } finally {
+      setIsSubmitting(false);
+    }
+  };
+
+  const handleNext = async () => {
     if (!validate()) return;
     if (isLastStep) {
-      setSubmitted(true);
+      await submitForm();
       return;
     }
+    setSubmitError('');
     setErrors({});
     setStep((s) => s + 1);
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -496,6 +561,11 @@ const OnboardingForm = () => {
     setStep((s) => s - 1);
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
+
+  let nextButtonLabel = 'Next →';
+  if (isLastStep) {
+    nextButtonLabel = isSubmitting ? 'Sending...' : 'Get my website started →';
+  }
 
   /* ── Field renderers ── */
   const renderField = (field: AnyField) => {
@@ -1032,6 +1102,7 @@ const OnboardingForm = () => {
             <button
               type="button"
               onClick={handleNext}
+              disabled={isSubmitting}
               style={{
                 padding: '0.8rem 2rem',
                 borderRadius: '0.75rem',
@@ -1041,13 +1112,25 @@ const OnboardingForm = () => {
                 fontFamily: "'Inter', sans-serif",
                 fontWeight: 700,
                 fontSize: '0.9375rem',
-                cursor: 'pointer',
+                cursor: isSubmitting ? 'not-allowed' : 'pointer',
+                opacity: isSubmitting ? 0.7 : 1,
                 transition: 'all 0.2s ease',
               }}
             >
-              {isLastStep ? 'Get my website started →' : 'Next →'}
+              {nextButtonLabel}
             </button>
           </div>
+          {submitError && (
+            <p
+              style={{
+                ...errBase,
+                marginTop: '1rem',
+                textAlign: 'right',
+              }}
+            >
+              {submitError}
+            </p>
+          )}
         </div>
       </div>
     </section>
