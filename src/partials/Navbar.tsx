@@ -3,8 +3,8 @@ import { useEffect, useState } from 'react';
 import logo from '../images/aljava_logo_dark.svg';
 
 const navLinks = [
-  { label: 'How it Works', href: '#how-it-works' },
-  { label: 'What you get', href: '#what-you-get' },
+  { label: 'How it Works', href: '/#how-it-works' },
+  { label: 'What you get', href: '/#what-you-get' },
   { label: 'Plans', href: '#plans' },
   { label: 'Contact', href: '/contact/' },
 ];
