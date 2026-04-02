@@ -1,3 +1,5 @@
+import logo from '../images/aljava_logo_dark.svg';
+
 const Footer = () => (
   <footer style={{ backgroundColor: '#091722' }}>
     <div className="mx-auto max-w-[1200px] px-5 py-12 md:px-8 md:py-16">
@@ -6,28 +8,13 @@ const Footer = () => (
         {/* Brand */}
         <div className="flex max-w-[280px] flex-col gap-4">
           <div className="flex items-center gap-2">
-            <div
-              className="flex h-9 w-9 items-center justify-center rounded-xl"
-              style={{ backgroundColor: '#1F4E79' }}
-            >
-              <svg width="20" height="20" viewBox="0 0 20 20" fill="none">
-                <path
-                  d="M10 2L17 6V14L10 18L3 14V6L10 2Z"
-                  fill="white"
-                  fillOpacity="0.9"
-                />
-              </svg>
-            </div>
-            <span
-              className="text-xl font-semibold"
-              style={{ color: '#FFFFFF' }}
-            >
-              AI Studio
-            </span>
+            <a href="/" className="no-underline">
+              <img src={logo.src} alt="Aljava" className="w-auto" />
+            </a>
           </div>
           <p className="text-sm leading-relaxed" style={{ color: '#94A3B8' }}>
-            AI-powered design assistant that transforms your creative vision
-            into stunning realities.
+            Simple websites for startups and small businesses — fast, clean and
+            without the usual hassle.
           </p>
         </div>
 
@@ -41,14 +28,18 @@ const Footer = () => (
               Product
             </p>
             <ul className="flex flex-col gap-3">
-              {['How it Works', 'Features', 'Pricing'].map((link) => (
-                <li key={link}>
+              {[
+                { label: 'How it Works', href: '#how-it-works' },
+                { label: 'What you get', href: '#what-you-get' },
+                { label: 'Plans', href: '#plans' },
+              ].map(({ label, href }) => (
+                <li key={label}>
                   <a
-                    href="#"
+                    href={href}
                     className="text-sm no-underline transition-colors"
                     style={{ color: '#D9E2EC' }}
                   >
-                    {link}
+                    {label}
                   </a>
                 </li>
               ))}
@@ -62,14 +53,18 @@ const Footer = () => (
               Company
             </p>
             <ul className="flex flex-col gap-3">
-              {['About', 'Blog', 'Contact'].map((link) => (
-                <li key={link}>
+              {[
+                { label: 'About', href: '/about/' },
+                { label: 'Blog', href: '/blog/' },
+                { label: 'Contact', href: '/contact/' },
+              ].map(({ label, href }) => (
+                <li key={label}>
                   <a
-                    href="#"
+                    href={href}
                     className="text-sm no-underline transition-colors"
                     style={{ color: '#D9E2EC' }}
                   >
-                    {link}
+                    {label}
                   </a>
                 </li>
               ))}
@@ -84,21 +79,22 @@ const Footer = () => (
         style={{ borderTop: '1px solid #1E3A4C' }}
       >
         <p className="text-xs" style={{ color: '#94A3B8' }}>
-          Made by{' '}
           <span style={{ color: '#D9E2EC', fontWeight: 600 }}>
             Aljava Studio
-          </span>{' '}
-          | Powered by Astro
+          </span>
         </p>
         <div className="flex gap-6">
-          {['Privacy Policy', 'Terms & Conditions'].map((link) => (
+          {[
+            { label: 'Privacy Policy', href: '/privacy-policy/' },
+            { label: 'Terms & Conditions', href: '/terms/' },
+          ].map(({ label, href }) => (
             <a
-              key={link}
-              href="#"
+              key={label}
+              href={href}
               className="text-xs no-underline transition-colors"
               style={{ color: '#94A3B8' }}
             >
-              {link}
+              {label}
             </a>
           ))}
         </div>

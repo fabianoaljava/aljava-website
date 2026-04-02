@@ -1,0 +1,176 @@
+---
+import Base from '@/templates/Base.astro';
+---
+
+<Base
+  head={{
+    title: 'Contact — Aljava Studio',
+    description: 'Tell us about your business and we\'ll create your first website version. No commitment. No pressure.',
+  }}
+>
+  <section style="background-color: #091722; min-height: calc(100vh - 140px);">
+    <div class="mx-auto max-w-[1200px] px-5 py-24 md:px-8 md:py-32">
+      <div class="grid grid-cols-1 gap-16 md:grid-cols-2 md:gap-24">
+
+        <!-- Left: copy -->
+        <div class="flex flex-col gap-8">
+          <div>
+            <p
+              class="mb-4 text-sm font-semibold uppercase tracking-widest"
+              style="font-family: 'Inter', sans-serif; color: #2A9D8F;"
+            >
+              Get started
+            </p>
+            <h1
+              style="font-family: 'Outfit', sans-serif; font-size: clamp(2rem, 4vw, 3rem); color: #FFFFFF; font-weight: 600; line-height: 1.15; margin: 0 0 1.5rem;"
+            >
+              Tell us about<br />your business
+            </h1>
+            <p
+              class="text-lg leading-relaxed"
+              style="font-family: 'Inter', sans-serif; color: #94A3B8;"
+            >
+              We'll create your first website version and come back to you within a couple of days.
+            </p>
+            <p
+              class="mt-3 text-base leading-relaxed"
+              style="font-family: 'Inter', sans-serif; color: #94A3B8;"
+            >
+              No commitment. No pressure. No long meetings.
+            </p>
+          </div>
+
+          <!-- Trust signals -->
+          <div class="flex flex-col gap-4">
+            {[
+              'Free for the first 3 months',
+              'Live within a few days',
+              'No technical work required from you',
+              'Cancel anytime',
+            ].map((item) => (
+              <div class="flex items-center gap-3">
+                <svg width="16" height="16" viewBox="0 0 16 16" fill="none">
+                  <circle cx="8" cy="8" r="8" fill="#2A9D8F" fill-opacity="0.15"/>
+                  <path d="M4.5 8l2.5 2.5 4.5-4.5" stroke="#2A9D8F" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+                <span style="font-family: 'Inter', sans-serif; color: #D9E2EC; font-size: 0.9rem;">{item}</span>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <!-- Right: form -->
+        <div
+          class="rounded-2xl p-8 md:p-10"
+          style="background-color: #0F2433; border: 1px solid #1E3A4C;"
+        >
+          <form
+            name="contact"
+            method="POST"
+            action="/contact/success"
+            class="flex flex-col gap-6"
+          >
+            <!-- Name -->
+            <div class="flex flex-col gap-2">
+              <label
+                for="name"
+                class="text-sm font-medium"
+                style="font-family: 'Inter', sans-serif; color: #D9E2EC;"
+              >
+                Your name
+              </label>
+              <input
+                id="name"
+                name="name"
+                type="text"
+                required
+                placeholder="Jane Smith"
+                class="w-full rounded-xl px-4 py-3 text-sm outline-none transition-all"
+                style="background-color: #091722; border: 1px solid #1E3A4C; color: #FFFFFF; font-family: 'Inter', sans-serif;"
+              />
+            </div>
+
+            <!-- Email -->
+            <div class="flex flex-col gap-2">
+              <label
+                for="email"
+                class="text-sm font-medium"
+                style="font-family: 'Inter', sans-serif; color: #D9E2EC;"
+              >
+                Email address
+              </label>
+              <input
+                id="email"
+                name="email"
+                type="email"
+                required
+                placeholder="jane@yourbusiness.com"
+                class="w-full rounded-xl px-4 py-3 text-sm outline-none transition-all"
+                style="background-color: #091722; border: 1px solid #1E3A4C; color: #FFFFFF; font-family: 'Inter', sans-serif;"
+              />
+            </div>
+
+            <!-- Business type -->
+            <div class="flex flex-col gap-2">
+              <label
+                for="business"
+                class="text-sm font-medium"
+                style="font-family: 'Inter', sans-serif; color: #D9E2EC;"
+              >
+                What does your business do?
+              </label>
+              <textarea
+                id="business"
+                name="business"
+                rows={3}
+                required
+                placeholder="A few sentences about what you do and who you serve."
+                class="w-full rounded-xl px-4 py-3 text-sm outline-none transition-all resize-none"
+                style="background-color: #091722; border: 1px solid #1E3A4C; color: #FFFFFF; font-family: 'Inter', sans-serif;"
+              ></textarea>
+            </div>
+
+            <!-- Plan interest -->
+            <div class="flex flex-col gap-2">
+              <label
+                for="plan"
+                class="text-sm font-medium"
+                style="font-family: 'Inter', sans-serif; color: #D9E2EC;"
+              >
+                What are you interested in?
+              </label>
+              <select
+                id="plan"
+                name="plan"
+                class="w-full rounded-xl px-4 py-3 text-sm outline-none transition-all"
+                style="background-color: #091722; border: 1px solid #1E3A4C; color: #D9E2EC; font-family: 'Inter', sans-serif;"
+              >
+                <option value="">Select an option</option>
+                <option value="launch">Launch — free website to get started</option>
+                <option value="studio">Studio — more polished look and branding</option>
+                <option value="advanced">Advanced — booking, ecommerce or automation</option>
+                <option value="unsure">Not sure yet — just exploring</option>
+              </select>
+            </div>
+
+            <button
+              type="submit"
+              class="btn-primary w-full rounded-xl py-3.5 text-sm font-semibold transition-all"
+              style="font-family: 'Inter', sans-serif;"
+            >
+              Send message
+            </button>
+
+            <p
+              class="text-center text-xs"
+              style="font-family: 'Inter', sans-serif; color: #94A3B8;"
+            >
+              We'll get back to you within 1–2 business days.
+            </p>
+          </form>
+        </div>
+
+      </div>
+    </div>
+  </section>
+</Base>

@@ -21,64 +21,93 @@ const CheckIcon = ({ color = '#2A9D8F' }: { color?: string }) => (
 
 type PlanData = {
   name: string;
-  monthly: { price: string; description: string; badge?: string };
-  yearly: { price: string; description: string; badge?: string };
+  monthly: {
+    price: string;
+    description: string;
+    subNote?: string;
+    badge?: string;
+  };
+  yearly: {
+    price: string;
+    description: string;
+    subNote?: string;
+    badge?: string;
+  };
   features: string[];
+  note?: string; // e.g. "Best for: …" or positioning line
   cta: string;
   highlighted: boolean;
 };
 
 const plans: PlanData[] = [
   {
-    name: 'Free',
-    monthly: { price: '$0', description: 'Free forever' },
-    yearly: { price: '$0', description: 'Free forever' },
+    name: 'Launch',
+    monthly: {
+      price: '£0',
+      description: 'Free for 3 months',
+      subNote: 'then £29.90/month',
+    },
+    yearly: {
+      price: '£0',
+      description: 'Free for 3 months',
+      subNote: 'then £23.92/month (−20%)',
+      badge: 'Save 20%',
+    },
     features: [
-      'Basic AI-generated designs',
-      'Access to customization tools',
-      'Standard templates library',
-      '5 projects per month',
+      'Automated website',
+      'Fast setup',
+      'Clean and functional',
+      'Hosting included',
     ],
-    cta: 'Get Started Free',
+    note: 'Best for: Startups, side projects, new businesses',
+    cta: 'Get your free website',
     highlighted: false,
   },
   {
-    name: 'Pro',
-    monthly: { price: '$14.99', description: 'Billed monthly' },
+    name: 'Studio',
+    monthly: {
+      price: '£39.90',
+      description: 'Per month + one-off setup',
+    },
     yearly: {
-      price: '$11.99',
-      description: 'Billed yearly — save $35.88',
+      price: '£31.92',
+      description: 'Per month, billed yearly',
+      subNote: '+ one-off setup fee',
       badge: 'Save 20%',
     },
     features: [
-      'Advanced AI-generated designs',
-      'Full access to customization tools',
-      'Premium templates library',
-      'Unlimited projects',
-      'Real-time collaboration',
-      'Priority email support',
+      'Everything in Launch',
+      '3 logo options',
+      'Mini design system',
+      'Styling based on websites you like',
+      'Refined layout and spacing',
+      'Stronger visual hierarchy',
     ],
-    cta: 'Start Pro',
+    note: 'Premium without the endless meetings.',
+    cta: 'Get started with Studio',
     highlighted: true,
   },
   {
-    name: 'Enterprise',
-    monthly: { price: '$29.99', description: 'Billed monthly' },
+    name: 'Advanced',
+    monthly: {
+      price: '£249.90',
+      description: 'Per month',
+    },
     yearly: {
-      price: '$23.99',
-      description: 'Billed yearly — save $71.88',
+      price: '£199.92',
+      description: 'Per month, billed yearly',
       badge: 'Save 20%',
     },
     features: [
-      'All features included in Pro Plan',
-      'Dedicated account manager',
-      'Custom AI solutions and designs',
-      'Onboarding and training sessions',
-      '24/7 priority support',
-      'Advanced analytics and reporting',
-      'Secure cloud storage',
+      'Everything in Studio',
+      'Advanced UX',
+      'Booking systems',
+      'Ecommerce',
+      'Automations',
+      'Ongoing optimisation',
     ],
-    cta: 'Contact Sales',
+    note: 'Best for: Businesses ready to grow and scale',
+    cta: 'Contact us',
     highlighted: false,
   },
 ];
@@ -87,7 +116,7 @@ const Pricing = () => {
   const [isYearly, setIsYearly] = useState(false);
 
   return (
-    <section id="plan" style={{ backgroundColor: '#091722' }}>
+    <section id="plans" style={{ backgroundColor: '#091722' }}>
       <div className="mx-auto max-w-[1200px] px-5 py-24 md:px-8 md:py-32">
         {/* Header */}
         <div className="mb-16 text-center" data-reveal>
@@ -228,17 +257,6 @@ const Pricing = () => {
                     >
                       {billing.price}
                     </span>
-                    {billing.price !== '$0' && (
-                      <span
-                        className="mb-1 text-lg"
-                        style={{
-                          fontFamily: "'Inter', sans-serif",
-                          color: '#94A3B8',
-                        }}
-                      >
-                        /m
-                      </span>
-                    )}
                   </div>
                   <p
                     className="text-sm"
@@ -249,6 +267,17 @@ const Pricing = () => {
                   >
                     {billing.description}
                   </p>
+                  {billing.subNote && (
+                    <p
+                      className="mt-1 text-xs"
+                      style={{
+                        fontFamily: "'Inter', sans-serif",
+                        color: '#1F7F74',
+                      }}
+                    >
+                      {billing.subNote}
+                    </p>
+                  )}
                 </div>
 
                 <div
@@ -275,9 +304,25 @@ const Pricing = () => {
                   ))}
                 </ul>
 
+                {/* Plan note (Best for / positioning) */}
+                {plan.note && (
+                  <p
+                    className="text-xs leading-relaxed"
+                    style={{
+                      fontFamily: "'Inter', sans-serif",
+                      color: plan.highlighted ? '#F4A261' : '#94A3B8',
+                      borderLeft: '2px solid',
+                      borderColor: plan.highlighted ? '#F4A261' : '#1E3A4C',
+                      paddingLeft: '0.75rem',
+                    }}
+                  >
+                    {plan.note}
+                  </p>
+                )}
+
                 {/* CTA */}
                 <a
-                  href="#"
+                  href={plan.name === 'Advanced' ? '/contact/' : '#contact'}
                   className={plan.highlighted ? 'btn-primary' : 'btn-secondary'}
                   style={{
                     fontFamily: "'Inter', sans-serif",

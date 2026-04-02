@@ -1,0 +1,143 @@
+---
+import Base from '@/templates/Base.astro';
+---
+
+<Base
+  head={{
+    title: 'About — Aljava Studio',
+    description: 'Aljava Studio helps people get online without overcomplicating it. Fast, clean websites for startups, small businesses and charities.',
+  }}
+>
+  <!-- Hero -->
+  <section style="background-color: #091722;">
+    <div class="mx-auto max-w-[1200px] px-5 py-24 md:px-8 md:py-32">
+      <div class="max-w-[720px]">
+        <p
+          class="mb-4 text-sm font-semibold uppercase tracking-widest"
+          style="font-family: 'Inter', sans-serif; color: #2A9D8F;"
+        >
+          About
+        </p>
+        <h1
+          style="font-family: 'Outfit', sans-serif; font-size: clamp(2.4rem, 5vw, 4rem); color: #FFFFFF; font-weight: 600; line-height: 1.1; margin: 0 0 1.5rem;"
+        >
+          We help people get online.<br />Without overcomplicating it.
+        </h1>
+        <p
+          class="text-lg leading-relaxed"
+          style="font-family: 'Inter', sans-serif; color: #94A3B8; max-width: 580px;"
+        >
+          Aljava Studio builds clean, professional websites for startups, small businesses and charities — fast, without the usual agency process.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- Core idea -->
+  <section style="background-color: #091722;">
+    <div class="mx-auto max-w-[1200px] px-5 pb-24 md:px-8">
+      <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
+        {[
+          {
+            icon: '⚡',
+            title: 'Launch quickly',
+            body: 'We use AI to move fast. Your first version is live in days, not weeks.',
+          },
+          {
+            icon: '✓',
+            title: 'Look credible',
+            body: 'Clean, modern design that gives people confidence in your business from the first visit.',
+          },
+          {
+            icon: '↑',
+            title: 'Improve over time',
+            body: 'Start simple and upgrade as your business grows. We\'re here for the long run.',
+          },
+        ].map((item) => (
+          <div
+            class="flex flex-col gap-4 rounded-2xl p-8"
+            style="background-color: #0F2433; border: 1px solid #1E3A4C;"
+          >
+            <span class="text-2xl">{item.icon}</span>
+            <h3
+              style="font-family: 'Outfit', sans-serif; color: #FFFFFF; font-weight: 600; font-size: 1.2rem; margin: 0;"
+            >
+              {item.title}
+            </h3>
+            <p
+              class="text-sm leading-relaxed"
+              style="font-family: 'Inter', sans-serif; color: #94A3B8;"
+            >
+              {item.body}
+            </p>
+          </div>
+        ))}
+      </div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section style="background-color: #091722;">
+    <div class="mx-auto max-w-[1200px] px-5 pb-24 md:px-8">
+      <div
+        class="rounded-2xl p-10 md:p-16"
+        style="background-color: #0F2433; border: 1px solid #1E3A4C;"
+      >
+        <div class="max-w-[640px]">
+          <p
+            class="mb-4 text-sm font-semibold uppercase tracking-widest"
+            style="font-family: 'Inter', sans-serif; color: #2A9D8F;"
+          >
+            How we work
+          </p>
+          <h2
+            style="font-family: 'Outfit', sans-serif; font-size: clamp(1.75rem, 3vw, 2.5rem); color: #FFFFFF; font-weight: 600; margin: 0 0 1.5rem; line-height: 1.15;"
+          >
+            AI speed. Human polish.
+          </h2>
+          <div
+            class="flex flex-col gap-5 text-base leading-relaxed"
+            style="font-family: 'Inter', sans-serif; color: #94A3B8;"
+          >
+            <p>
+              We use AI to move fast — but we don't leave it there. Every website is reviewed with real design thinking: better structure, better spacing, better hierarchy.
+            </p>
+            <p>
+              The result is something that feels considered and credible — not just generated and shipped.
+            </p>
+            <p
+              style="color: #D9E2EC; border-left: 2px solid #2A9D8F; padding-left: 1rem;"
+            >
+              No fluff. No drawn-out process. Just something that works.
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section style="background-color: #091722;">
+    <div class="mx-auto max-w-[1200px] px-5 pb-24 md:px-8">
+      <div class="flex flex-col items-start gap-6 md:flex-row md:items-center md:justify-between">
+        <div>
+          <h2
+            style="font-family: 'Outfit', sans-serif; font-size: clamp(1.5rem, 3vw, 2rem); color: #FFFFFF; font-weight: 600; margin: 0 0 0.5rem;"
+          >
+            Ready to get started?
+          </h2>
+          <p style="font-family: 'Inter', sans-serif; color: #94A3B8; margin: 0;">
+            Tell us about your business — no commitment, no pressure.
+          </p>
+        </div>
+        <a
+          href="/contact"
+          class="btn-primary inline-flex items-center rounded-xl px-8 py-3.5 text-sm font-semibold no-underline"
+          style="font-family: 'Inter', sans-serif; white-space: nowrap;"
+        >
+          Get your free website
+        </a>
+      </div>
+    </div>
+  </section>
+</Base>

@@ -3,27 +3,25 @@ import { Hero } from '@/partials/Hero';
 import { HowItWorks } from '@/partials/HowItWorks';
 import { WhatYouGet } from '@/partials/WhatYouGet';
 import { Pricing } from '@/partials/Pricing';
-import { Integrations } from '@/partials/Integrations';
+import { Premium } from '@/partials/Premium';
 import { Testimonials } from '@/partials/Testimonials';
 import { FAQ } from '@/partials/FAQ';
-import { BlogPreview } from '@/partials/BlogPreview';
 import { CTA } from '@/partials/CTA';
 import Base from '@/templates/Base.astro';
 ---
 
 <Base
   head={{
-    title: 'AI Studio – AI-Powered Design Assistant',
-    description: 'Unlock your creative potential. Seamlessly generate, customize, and perfect your designs with cutting-edge AI technology.',
+    title: 'Aljava Studio',
+    description: 'Simple websites for startups and small businesses — fast, clean and without the usual hassle.',
   }}
 >
   <Hero />
   <HowItWorks />
   <WhatYouGet />
   <Pricing client:load />
-  <Integrations />
+  <Premium />
   <Testimonials />
   <FAQ />
-  <BlogPreview />
   <CTA />
 </Base>
