@@ -49,14 +49,14 @@ const CTA = () => (
           data-reveal-delay="200"
         >
           <a
-            href="#"
+            href="/get-started/"
             className="btn-primary inline-flex items-center justify-center rounded-xl px-8 py-3.5 text-sm font-semibold no-underline"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >
             Get your free website
           </a>
           <a
-            href="#"
+            href="/get-started/"
             className="btn-secondary inline-flex items-center justify-center rounded-xl px-8 py-3.5 text-sm font-semibold no-underline"
             style={{ fontFamily: "'Inter', sans-serif" }}
           >

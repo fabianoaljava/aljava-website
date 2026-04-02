@@ -75,7 +75,7 @@ const Navbar = () => {
           <div className="flex items-center gap-3">
             {/* Desktop CTA */}
             <a
-              href="#"
+              href="/get-started/"
               className="hidden rounded-full px-5 py-2.5 text-sm font-semibold no-underline transition-all duration-200 md:block"
               style={{
                 backgroundColor: '#F4A261',
@@ -169,7 +169,7 @@ const Navbar = () => {
 
           {/* Mobile CTA */}
           <a
-            href="#"
+            href="/get-started/"
             onClick={() => setMenuOpen(false)}
             className="block w-full rounded-2xl py-4 text-center text-lg font-semibold no-underline"
             style={{

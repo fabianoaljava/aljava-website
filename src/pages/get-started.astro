@@ -1,0 +1,13 @@
+---
+import { OnboardingForm } from '@/partials/OnboardingForm';
+import Base from '@/templates/Base.astro';
+---
+
+<Base
+  head={{
+    title: 'Get Started — Aljava Studio',
+    description: "Tell us about your business and we'll build your website. No fluff. No long process. Just a clean way to get online.",
+  }}
+>
+  <OnboardingForm client:load />
+</Base>

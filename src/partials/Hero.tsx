@@ -43,7 +43,7 @@ const Hero = () => (
             data-reveal-delay="200"
           >
             <a
-              href="#"
+              href="/get-started/"
               className="btn-primary inline-flex items-center gap-2 rounded-xl px-6 py-3 text-sm font-semibold no-underline"
               style={{ fontFamily: "'Inter', sans-serif" }}
             >
